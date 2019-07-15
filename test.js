@@ -1,3 +1,19 @@
-for(const i in [10,11]){
-    console.log(i)
+const fetch = require('node-fetch')
+
+const func = async () => {
+    const cookie = 'BAIDUID=F7AF7A92EFFBC827BBC6712EF597460D:FG=1; BIDUPSID=F7AF7A92EFFBC827BBC6712EF597460D; PSTM=1557906239; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; bdshare_firstime=1562311128398; H_PS_PSSID=1442_21118_29238_28519_29098_28836_29221_20719; BDUSS=XZBOTZPQWhkckNua3loSk1kQVlyQWtnVlJhZ0dNTERONmpRfm5oRkswTGkza2RkRVFBQUFBJCQAAAAAAAAAAAEAAAAAKa4NOTEyMDE2NDg2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOJRIF3iUSBde; delPer=0; PSINO=7; BDSFRCVID=5cLsJeCCxG3JggRwKif28d34g0FOeQZRddMu3J; H_BDCLCKID_SF=JbADoDD-JCvbfP0kKtr_MJQH-UnLqbJt02OZ0l8KtDbUsKn1DnJG065QbHt8q43hQHREaJrmWIQHDP5GMf65qfFS2f4eBlTH2C64KKJx5fKWeIJo5DcvMq5XhUJiBMnMBan7alOIXKohJh7FM4tW3J0ZyxomtfQxtN4eaDFatKI5MI0meno_Mt4HqfbQa4JWHDQbsJOOaCvbSKbOy4oTj6Dj5n7XWlofyTTjBbK5f4oFeD59Lp7j3MvB-fn9-MLjJguO_lTFLCThepjMQft20-KAeMtjBbLLyT4qBJ7jWhvvep72yMrTQlRX5q79atTMfNTJ-qcH0KQpsIJMDUC0D63BDN0eJjFsb5vfstJ-abOqqPOvhCTjhPrMbfQRWMT-0bFHKKj2bML5fpvo5P6qjTFXKMvu0njBJan7_JjO0fb_qJ-x3j7T5UDNQxoQKMQxtNR70DnjtpvhHlCwqfcobUPUyUJ9LUvA02cdot5yBbc8eIna5hjkbfJBQttjQTJZfJCsBRre54P_HRjYbb__-P4DeNo2WnJZ5m7mXp0bWJ3JV43oMtDKe-3yjMtj0fR-LGQN0nbzbCOkbRO4-TFaD5O3Df5; Hm_lvt_d101ea4d2a5c67dab98251f0b5de24dc=1562311121,1562399147,1562553990; CHKFORREG=14cbc062d4377607aef681c53d169280; bdindexid=qnpu219d32s1573ivmq8ojdd63; Hm_lpvt_d101ea4d2a5c67dab98251f0b5de24dc=1562553998'
+    const headers = {}
+    headers.Cookie = cookie
+    const res = await fetch(encodeURI(`http://index.baidu.com/api/SearchApi/index?area=0&word=英雄联盟&day=90`), {
+        headers
+    })
+
+    const data = await res.json()
+    console.log(data)
 }
+let i =0
+setInterval(() => {
+    i++
+    console.log(i)
+    func()
+}, 200);
